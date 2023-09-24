@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task4-JS</title>
+</head>
+<body>
+  <button onclick="showDate()">Show Date</button>
+  <p id="dateResult"></p>
+
+  <button onclick="showTime()">Show Time</button>
+  <p id="timeResult"></p>
+
+  <script>
+    function showDate() {
+      const currentDate = new Date();
+      const options = { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric' };
+      const formattedDate = currentDate.toLocaleString('en-US', options);
+      document.getElementById("dateResult").textContent = formattedDate;
+    }
+
+    function showTime() {
+      const currentTime = new Date();
+      const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZoneName: 'short' };
+      const formattedTime = currentTime.toLocaleString('en-US', options);
+      document.getElementById("timeResult").textContent = formattedTime;
+    }
+  </script>
+</body>
+</html>

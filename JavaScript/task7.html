@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task7-JS</title>
+  <style>
+    body{
+        align-content: center;
+    }
+    h2{
+        color: blue;
+    }
+    #container {
+      position: relative;
+      width: 800; /* Adjust this to your animation width */
+      height: 200px; /* Adjust this to your image height */
+      overflow: hidden;
+    }
+
+    #moving-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: left 1ms linear; /* Adjust the duration and timing function as needed */
+    }
+  </style>
+</head>
+<body>
+  
+  <div id="container" align="center">
+    <img id="moving-image" src="train.jpg" alt="Moving Image">
+  </div>
+  
+  <div align="center">
+    <h2>Click the following buttons to handle animation.</h2>
+  <br>
+    <button id="start-button">Start</button>
+  <button id="stop-button">Stop</button>
+  </div>
+
+  <script>
+    const movingImage = document.getElementById('moving-image');
+    const startButton = document.getElementById('start-button');
+    const stopButton = document.getElementById('stop-button');
+    let animationInterval;
+
+    startButton.addEventListener('click', () => {
+      startButton.disabled = true;
+      stopButton.disabled = false;
+      animateImage();
+    });
+
+    stopButton.addEventListener('click', () => {
+      startButton.disabled = false;
+      stopButton.disabled = true;
+      clearInterval(animationInterval);
+    });
+
+    function animateImage() {
+      let currentPosition = 0; // Initial position
+      const animationSpeed = 2; // Adjust this value to control animation speed
+
+      animationInterval = setInterval(() => {
+        currentPosition += animationSpeed;
+        movingImage.style.left = currentPosition + 'px';
+
+        // Adjust the width value according to your animation's total width
+        if (currentPosition >= 400) {
+          clearInterval(animationInterval); // Animation complete
+          startButton.disabled = false;
+          stopButton.disabled = true;
+        }
+      }, 16); // Approximately 60 frames per second
+    }
+
+    // Initially, disable the "Stop" button
+    stopButton.disabled = true;
+  </script>
+</body>
+</html>

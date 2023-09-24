@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Task5-JS</title>
+  <style>
+    .error {
+      color: red;
+      white-space: nowrap; /* Prevent line breaks */
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      max-width: 500px;
+      text-align: left;
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+    }
+
+    .input-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    label {
+      margin-right: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    textarea {
+      padding: 5px;
+      border: 1px solid #ccc;
+      flex: 1; /* Input boxes take most of the available space */
+    }
+
+    input[type="text"]:invalid,
+    input[type="email"]:invalid,
+    input[type="url"]:invalid,
+    textarea:invalid {
+      border-color: red;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <table>
+      <tr>
+        <td>
+          <div class="input-group">
+            <label for="name">Name:</label>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <input type="text" id="name" name="name" required>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <span class="error" id="nameError"></span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="input-group">
+            <label for="email">Email:</label>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <input type="email" id="email" name="email" required>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <span class="error" id="emailError"></span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="input-group">
+            <label for="website">Website:</label>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <input type="url" id="website" name="website" required>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <span class="error" id="websiteError"></span>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div class="input-group">
+            <label for="message">Message:</label>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <textarea id="message" name="message" required></textarea>
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <span class="error" id="messageError"></span>
+          </div>
+        </td>
+        
+      </tr>
+      <tr>
+        <td>
+
+        </td>
+        <td>
+            <div>
+                <button onclick="validateForm()">Submit</button>
+              </div>
+        </td>
+      </tr>
+    </table>
+
+    
+  </form>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const website = document.getElementById('website').value;
+      const message = document.getElementById('message').value;
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const websiteError = document.getElementById('websiteError');
+      const messageError = document.getElementById('messageError');
+
+      nameError.textContent = '';
+      emailError.textContent = '';
+      websiteError.textContent = '';
+      messageError.textContent = '';
+
+      if (name.trim() === '') {
+        nameError.textContent = 'This field is required';
+      }
+
+      if (email.trim() === '') {
+        emailError.textContent = 'A valid email address is required';
+      }
+
+      if (website.trim() === '') {
+        websiteError.textContent = 'A valid URL is required';
+      }
+
+      if (message.trim() === '') {
+        messageError.textContent = 'This field is required';
+      }
+    }
+  </script>
+</body>
+</html>

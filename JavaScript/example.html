@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation</title>
+  <style>
+    .error {
+      color: red;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      max-width: 300px;
+      text-align: left;
+    }
+
+    .input-group {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    label {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    textarea {
+      flex: 2;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="text"]:invalid,
+    input[type="email"]:invalid,
+    input[type="url"]:invalid,
+    textarea:invalid {
+      border-color: red;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <div class="input-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      <span class="error" id="nameError"></span>
+    </div>
+
+    <div class="input-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <span class="error" id="emailError"></span>
+    </div>
+
+    <div class="input-group">
+      <label for="website">Website:</label>
+      <input type="url" id="website" name="website" required>
+      <span class="error" id="websiteError"></span>
+    </div>
+
+    <div class="input-group">
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" required></textarea>
+      <span class="error" id="messageError"></span>
+    </div>
+
+    <div>
+      <button type="button" onclick="validateForm()">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const website = document.getElementById('website').value;
+      const message = document.getElementById('message').value;
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const websiteError = document.getElementById('websiteError');
+      const messageError = document.getElementById('messageError');
+      const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      const urlPattern = /^(https?:\/\/)?([a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})(\/\S*)?$/;
+
+      nameError.textContent = '';
+      emailError.textContent = '';
+      websiteError.textContent = '';
+      messageError.textContent = '';
+
+      if (name.trim() === '') {
+        nameError.textContent = 'This field is required';
+      }
+
+      if (!email.match(emailPattern)) {
+        emailError.textContent = 'A valid email address is required';
+      } else if (email.trim() === '') {
+        emailError.textContent = 'This field is required';
+      }
+
+      if (!website.match(urlPattern)) {
+        websiteError.textContent = 'A valid URL is required';
+      } else if (website.trim() === '') {
+        websiteError.textContent = 'This field is required';
+      }
+
+      if (message.trim() === '') {
+        messageError.textContent = 'This field is required';
+      }
+    }
+  </script>
+</body>
+</html>

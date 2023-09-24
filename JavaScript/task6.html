@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task6-JS</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 85%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            padding-left: 30px;
+            /* Add space for icon */
+            /* Add equal padding on both sides */
+            padding-right: 10px;
+            background-image: url('user-icon.jpg');
+            /* Add icon for username field */
+            background-repeat: no-repeat;
+            background-position: 5px center;
+            /* Adjust icon position */
+        }
+
+        input[type="password"] {
+            background-image: url('lock-icon.jpg');
+            /* Add icon for password field */
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .forgot-password {
+            font-size: 12px;
+            text-align: right;
+            margin-top: 1px;
+        }
+
+        .remember-me {
+            font-size: 12px;
+        }
+
+        button {
+            width: 90%;
+            padding: 10px;
+            border-radius: 3px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .table-container {
+            display: table;
+            width: 100%;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            padding: 12px;
+        }
+
+        .signup-link {
+            margin-top: 20px;
+            font-size: 14px;
+            /* Adjust the font size */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="container">
+            <div aria-disabled="false" role="button" tabindex="0" style="cursor: pointer;">
+                <i
+                    data-visualcompletion="css-img" aria-label="Instagram" class="" role="img"
+                    style="background-image: url(&quot;https://static.cdninstagram.com/rsrc.php/v3/yx/r/WtxJZZ3-9ZP.png&quot;); background-position: 0px 0px; background-size: 176px 186px; width: 174px; height: 50px; background-repeat: no-repeat; display: inline-block;"></i>
+            </div>
+            <form id="loginForm">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <div>
+                    <button> Login </button>
+                </div>
+                <div class="table-container">
+                    <div class="table-row">
+                        <div class="table-cell">
+                            <label class="'table-cell remember-me">
+                                <input type="checkbox" id="rememberMe" name="rememberMe"> Remember Me
+                            </label>
+                        </div>
+                        <div class="table-cell forgot-password">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="signup-link">
+            Don't have an account? <a href="#">Sign up here</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
